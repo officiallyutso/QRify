@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgroundColorHex = document.getElementById('background-color-hex');
     const errorCorrectionSelect = document.getElementById('error-correction');
     const sizeBtns = document.querySelectorAll('.qr-size-btn');
+    const themeToggle = document.getElementById('theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+    const html = document.documentElement;
 
     // QR Code Options
     let qrCodeOptions = {
@@ -30,6 +34,120 @@ document.addEventListener('DOMContentLoaded', function() {
             light: '#FFFFFF'
         }
     };
+
+    function initTheme() {
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            enableDarkMode(false); // No animation on initial load
+        } else {
+            enableLightMode(false); // No animation on initial load
+        }
+    }
+    
+    function enableDarkMode(animate = true) {
+        html.classList.add('dark');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+        
+        // Animate transition only if requested
+        if (animate) {
+            gsap.to('body', {
+                backgroundColor: '#111827',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    }
+    
+    function enableLightMode(animate = true) {
+        html.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'light');
+        
+        // Animate transition only if requested
+        if (animate) {
+            gsap.to('body', {
+                backgroundColor: '#f3f4ff',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    }
+    
+    // Toggle theme with professional animation
+    themeToggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+            // Transition to light mode
+            gsap.to(themeToggle, {
+                scale: 0.9,
+                duration: 0.1,
+                onComplete: function() {
+                    enableLightMode();
+                    gsap.to(themeToggle, {
+                        scale: 1,
+                        duration: 0.2
+                    });
+                }
+            });
+        } else {
+            // Transition to dark mode
+            gsap.to(themeToggle, {
+                scale: 0.9,
+                duration: 0.1,
+                onComplete: function() {
+                    enableDarkMode();
+                    gsap.to(themeToggle, {
+                        scale: 1,
+                        duration: 0.2
+                    });
+                }
+            });
+        }
+    });
+    
+    // Do the same for mobile toggle
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const moonIconMobile = document.getElementById('moon-icon-mobile');
+    const sunIconMobile = document.getElementById('sun-icon-mobile');
+    
+    themeToggleMobile.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+            // Transition to light mode
+            gsap.to(themeToggleMobile, {
+                scale: 0.9,
+                duration: 0.1,
+                onComplete: function() {
+                    sunIconMobile.classList.add('hidden');
+                    moonIconMobile.classList.remove('hidden');
+                    enableLightMode();
+                    gsap.to(themeToggleMobile, {
+                        scale: 1,
+                        duration: 0.2
+                    });
+                }
+            });
+        } else {
+            // Transition to dark mode
+            gsap.to(themeToggleMobile, {
+                scale: 0.9,
+                duration: 0.1,
+                onComplete: function() {
+                    moonIconMobile.classList.add('hidden');
+                    sunIconMobile.classList.remove('hidden');
+                    enableDarkMode();
+                    gsap.to(themeToggleMobile, {
+                        scale: 1,
+                        duration: 0.2
+                    });
+                }
+            });
+        }
+    });
 
     // Mobile Menu Toggle
     mobileMenuButton.addEventListener('click', function() {
@@ -188,5 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         gsap.from('nav', {y: -50, opacity: 0, duration: 0.7, ease: 'power3.out'});
         gsap.from('main > div', {y: 20, opacity: 0, duration: 0.7, stagger: 0.15, delay: 0.3, ease: 'power3.out'});
+        
+        // Initialize theme
+        initTheme();
     });
 });

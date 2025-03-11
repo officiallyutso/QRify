@@ -58,6 +58,162 @@ input[type="color"]::-webkit-color-swatch {
     color: #4f46e5;
 }
 
+/* Essential dark mode overrides - these will take precedence over Tailwind classes */
+.dark {
+    color-scheme: dark;
+}
+
+/* Body background for dark mode */
+.dark body {
+    background-color: #111827;
+    background-image: linear-gradient(to bottom right, #111827, #1f2937);
+    color: #f3f4ff;
+}
+
+/* Dark mode backgrounds */
+.dark .bg-white {
+    background-color: #1f2937 !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: #374151 !important;
+}
+
+.dark .bg-indigo-100 {
+    background-color: #4338ca !important;
+}
+
+.dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, #111827, #1f2937) !important;
+}
+
+/* Dark mode text colors */
+.dark .text-gray-800 {
+    color: #f3f4ff !important;
+}
+
+.dark .text-gray-700 {
+    color: #e5e7eb !important;
+}
+
+.dark .text-gray-600 {
+    color: #d1d5db !important;
+}
+
+/* Dark mode input fields */
+.dark input, 
+.dark select, 
+.dark textarea {
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+    color: #f3f4ff !important;
+}
+
+.dark input:focus, 
+.dark select:focus, 
+.dark textarea:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* Dark mode borders */
+.dark .border {
+    border-color: #4b5563 !important;
+}
+
+.dark .border-gray-300 {
+    border-color: #4b5563 !important;
+}
+
+.dark .shadow-md,
+.dark .shadow-xl {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Theme toggle button styles */
+#theme-toggle, #theme-toggle-mobile {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dark #theme-toggle, .dark #theme-toggle-mobile {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#theme-toggle:hover, #theme-toggle-mobile:hover {
+    transform: none;
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* FIX: Theme toggle icons visibility */
+#moon-icon, #sun-icon, #moon-icon-mobile, #sun-icon-mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Default state: Show moon in light mode, hide sun */
+#moon-icon, #moon-icon-mobile {
+    opacity: 1;
+    visibility: visible;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+}
+
+#sun-icon, #sun-icon-mobile {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Dark mode: Show sun, hide moon */
+.dark #moon-icon, .dark #moon-icon-mobile {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dark #sun-icon, .dark #sun-icon-mobile {
+    opacity: 1;
+    visibility: visible;
+    filter: drop-shadow(0 0 2px rgba(252, 211, 77, 0.5));
+}
+
+/* Force dark mode for feature cards */
+.dark .bg-white.p-6.rounded-lg.shadow-md {
+    background-color: #1f2937 !important;
+}
+
+/* Force dark mode for customization container */
+.dark #customization-container .bg-indigo-100 {
+    background-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+.dark #customization-container .border-indigo-300 {
+    border-color: rgba(99, 102, 241, 0.4) !important;
+}
+
+/* Transitions for smooth theme switching */
+body, 
+.bg-white, 
+.bg-gray-50, 
+.bg-indigo-100, 
+.text-gray-800, 
+.text-gray-700, 
+.text-gray-600, 
+input, 
+select, 
+textarea, 
+.border, 
+.border-gray-300, 
+.shadow-md, 
+.shadow-xl {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Custom responsive styles */
 @media (max-width: 640px) {
     #qr-code-container {
@@ -67,5 +223,10 @@ input[type="color"]::-webkit-color-swatch {
     .custom-grid {
         display: flex;
         flex-direction: column;
+    }
+    
+    #theme-toggle-mobile {
+        width: 36px;
+        height: 36px;
     }
 }

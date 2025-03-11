@@ -8,25 +8,33 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 min-h-screen font-sans transition-colors duration-300">
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md px-6 py-4">
+    <nav class="bg-white dark:bg-gray-800 shadow-md px-6 py-4 transition-colors duration-300">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-qrcode text-indigo-600 text-2xl"></i>
-                <span class="text-xl font-bold text-gray-800">QRify</span>
+                <i class="fas fa-qrcode text-indigo-600 dark:text-indigo-400 text-2xl"></i>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">QRify</span>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Features</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Pricing</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Home</a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Features</a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Pricing</a>
+                <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
             </div>
-            <div class="hidden md:block">
+            <div class="hidden md:flex items-center space-x-4">
+                <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition focus:outline-none">
+                    <i id="moon-icon" class="fas fa-moon text-gray-600"></i>
+                    <i id="sun-icon" class="fas fa-sun text-yellow-400 hidden"></i>
+                </button>
                 <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Sign Up</button>
             </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-800">
+            <div class="md:hidden flex items-center space-x-3">
+                <button id="theme-toggle-mobile" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition focus:outline-none">
+                    <i id="moon-icon-mobile" class="fas fa-moon text-gray-600"></i>
+                    <i id="sun-icon-mobile" class="fas fa-sun text-yellow-400 hidden"></i>
+                </button>
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -34,12 +42,12 @@
     </nav>
 
     <!-- Mobile Menu (hidden by default) -->
-    <div id="mobile-menu" class="hidden bg-white shadow-md py-4 px-6 md:hidden">
+    <div id="mobile-menu" class="hidden bg-white dark:bg-gray-800 shadow-md py-4 px-6 md:hidden transition-colors duration-300">
         <div class="flex flex-col space-y-4">
-            <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Features</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Pricing</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Home</a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Features</a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Pricing</a>
+            <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
             <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition w-full">Sign Up</button>
         </div>
     </div>
@@ -47,18 +55,18 @@
     <!-- Main Content Section -->
     <main class="max-w-6xl mx-auto px-6 py-10">
         <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-800 mb-3">Create Custom QR Codes in Seconds</h1>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Generate high-quality QR codes for your business, marketing campaigns, or personal use with our easy-to-use tool.</p>
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-3 transition-colors duration-300">Create Custom QR Codes in Seconds</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">Generate high-quality QR codes for your business, marketing campaigns, or personal use with our easy-to-use tool.</p>
         </div>
 
         <!-- QR Code Generator Card -->
-        <div class="bg-white rounded-xl shadow-xl p-8 max-w-4xl mx-auto mb-16">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 max-w-4xl mx-auto mb-16 transition-colors duration-300">
             <!-- Input Section -->
             <div class="mb-8">
-                <label for="url-input" class="block text-gray-700 font-medium mb-2">Enter your URL</label>
+                <label for="url-input" class="block text-gray-700 dark:text-gray-300 font-medium mb-2 transition-colors duration-300">Enter your URL</label>
                 <div class="flex">
-                    <input type="text" id="url-input" placeholder="https://example.com" 
-                           class="flex-grow p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <input type="text" id="url-input" placeholder="https://google.com" 
+                           class="flex-grow p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-300">
                     <button id="generate-btn" 
                             class="bg-indigo-600 text-white px-6 py-3 rounded-r-md hover:bg-indigo-700 transition flex items-center">
                         <span>Generate</span>
@@ -71,10 +79,10 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- QR Code Preview -->
                 <div id="qr-result-container" class="hidden">
-                    <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center transition-colors duration-300">
                         <div id="loading-spinner" class="py-16 hidden">
                             <i class="fas fa-circle-notch fa-spin text-indigo-500 text-4xl"></i>
-                            <p class="text-gray-600 mt-3">Generating your QR code...</p>
+                            <p class="text-gray-600 dark:text-gray-300 mt-3 transition-colors duration-300">Generating your QR code...</p>
                         </div>
                         <div id="qr-code-container" class="flex justify-center items-center py-8"></div>
                         <div id="download-container" class="mt-4 hidden">
@@ -87,39 +95,39 @@
 
                 <!-- Customization Options -->
                 <div id="customization-container" class="hidden">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Customize Your QR Code</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Customize Your QR Code</h3>
                     
                     <!-- Size Options -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 mb-2">Size</label>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Size</label>
                         <div class="flex space-x-3">
-                            <button data-size="128" class="qr-size-btn px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition">S</button>
-                            <button data-size="256" class="qr-size-btn px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition bg-indigo-100 border-indigo-300">M</button>
-                            <button data-size="384" class="qr-size-btn px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition">L</button>
+                            <button data-size="128" class="qr-size-btn px-4 py-2 border border-gray-300 dark:border-gray-600 dark:text-white rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition">S</button>
+                            <button data-size="256" class="qr-size-btn px-4 py-2 border border-gray-300 dark:border-gray-600 dark:text-white rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition bg-indigo-100 dark:bg-indigo-900 border-indigo-300 dark:border-indigo-700">M</button>
+                            <button data-size="384" class="qr-size-btn px-4 py-2 border border-gray-300 dark:border-gray-600 dark:text-white rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition">L</button>
                         </div>
                     </div>
                     
                     <!-- Color Options -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 mb-2">Foreground Color</label>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Foreground Color</label>
                         <div class="flex items-center space-x-3">
                             <input type="color" id="foreground-color" value="#000000" class="w-10 h-10 rounded cursor-pointer">
-                            <span id="foreground-color-hex" class="text-gray-600">#000000</span>
+                            <span id="foreground-color-hex" class="text-gray-600 dark:text-gray-300 transition-colors duration-300">#000000</span>
                         </div>
                     </div>
                     
                     <div class="mb-4">
-                        <label class="block text-gray-700 mb-2">Background Color</label>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Background Color</label>
                         <div class="flex items-center space-x-3">
                             <input type="color" id="background-color" value="#FFFFFF" class="w-10 h-10 rounded cursor-pointer">
-                            <span id="background-color-hex" class="text-gray-600">#FFFFFF</span>
+                            <span id="background-color-hex" class="text-gray-600 dark:text-gray-300 transition-colors duration-300">#FFFFFF</span>
                         </div>
                     </div>
                     
                     <!-- Error Correction -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 mb-2">Error Correction Level</label>
-                        <select id="error-correction" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Error Correction Level</label>
+                        <select id="error-correction" class="w-full p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
                             <option value="L">Low (7% recovery)</option>
                             <option value="M">Medium (15% recovery)</option>
                             <option value="Q">Quartile (25% recovery)</option>
@@ -137,73 +145,72 @@
 
         <!-- Features Section -->
         <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-bolt text-indigo-600 text-xl"></i>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-colors duration-300">
+                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300">
+                    <i class="fas fa-bolt text-indigo-600 dark:text-indigo-400 text-xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast Generation</h3>
-                <p class="text-gray-600">Create custom QR codes in seconds with our lightning-fast generator.</p>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2 transition-colors duration-300">Fast Generation</h3>
+                <p class="text-gray-600 dark:text-gray-300 transition-colors duration-300">Create custom QR codes in seconds with our lightning-fast generator.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-paint-brush text-indigo-600 text-xl"></i>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-colors duration-300">
+                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300">
+                    <i class="fas fa-paint-brush text-indigo-600 dark:text-indigo-400 text-xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Customization</h3>
-                <p class="text-gray-600">Customize colors, size, and style to match your brand or preferences.</p>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2 transition-colors duration-300">Customization</h3>
+                <p class="text-gray-600 dark:text-gray-300 transition-colors duration-300">Customize colors, size, and style to match your brand or preferences.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-download text-indigo-600 text-xl"></i>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-colors duration-300">
+                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300">
+                    <i class="fas fa-download text-indigo-600 dark:text-indigo-400 text-xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Easy Download</h3>
-                <p class="text-gray-600">Download your QR codes in high-quality PNG format with a single click.</p>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2 transition-colors duration-300">Easy Download</h3>
+                <p class="text-gray-600 dark:text-gray-300 transition-colors duration-300">Download your QR codes in high-quality PNG format with a single click.</p>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10">
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-10 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h4 class="text-xl font-semibold mb-4">QRify</h4>
-                    <p class="text-gray-400">The easiest way to create customized QR codes for your business or personal use.</p>
+                    <p class="text-gray-400 dark:text-gray-300 transition-colors duration-300">The easiest way to create customized QR codes for your business or personal use.</p>
                 </div>
                 
                 <div>
                     <h4 class="font-medium mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Features</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Features</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Pricing</a></li>
+                        <li><a href="contact.html" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-medium mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">API</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Support</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="https://github.com/officiallyutso/QRify" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Documentation</a></li>
+                        <li><a href="contact.html" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Support</a></li>
+                        <li><a href="https://github.com/officiallyutso" class="text-gray-400 dark:text-gray-300 hover:text-white transition">Blog</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-medium mb-4">Connect With Us</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/utsosarkar" class="text-gray-400 dark:text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 dark:text-gray-300 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/the_arjo/" class="text-gray-400 dark:text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/officiallyutso" class="text-gray-400 dark:text-gray-300 hover:text-white transition"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-gray-700 text-gray-400 text-sm">
+            <div class="pt-8 border-t border-gray-700 text-gray-400 dark:text-gray-300 text-sm transition-colors duration-300">
                 <p>&copy; 2025 QRify. All rights reserved.</p>
             </div>
         </div>
