@@ -1,0 +1,71 @@
+/* Custom animations and styles */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Input focus styling */
+#url-input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
+/* QR Code container styling */
+#qr-code-container {
+    min-height: 256px;
+}
+
+#qr-code-container img {
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Color picker styling */
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+/* Active state for size buttons */
+.qr-size-btn.active {
+    background-color: #e0e7ff;
+    border-color: #6366f1;
+    color: #4f46e5;
+}
+
+/* Custom responsive styles */
+@media (max-width: 640px) {
+    #qr-code-container {
+        min-height: 200px;
+    }
+    
+    .custom-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}
