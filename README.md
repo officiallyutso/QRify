@@ -1,6 +1,7 @@
 # QRify - Modern QR Code Generator
 
-![QRify Banner](/api/placeholder/1200/300)
+![Screenshot 2025-03-12 002301](https://github.com/user-attachments/assets/3fc5a52e-8c8d-4a01-b674-cbcb7834ae79)
+
 
 QRify is a powerful, modern, and easy-to-use QR code generator web application built with vanilla JavaScript, Tailwind CSS, and GSAP animations. Create customized QR codes for your business, marketing campaigns, or personal use in seconds.
 
