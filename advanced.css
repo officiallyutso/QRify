@@ -1,0 +1,248 @@
+/* Custom animations and styles */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Input focus styling */
+input:focus, select:focus, textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
+/* QR Code container styling */
+#qr-code-container {
+    min-height: 256px;
+}
+
+#qr-code-container img {
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#qr-preview-container {
+    min-height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color picker styling */
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+/* Active state for buttons */
+.qr-size-btn.active, .shape-btn.active, .frame-btn.active, .format-btn.active {
+    background-color: #e0e7ff;
+    border-color: #6366f1;
+    color: #4f46e5;
+}
+
+/* Tab styling */
+.tab-btn.active {
+    color: #4f46e5;
+    border-bottom-color: #4f46e5;
+}
+
+/* Overlay for logo preview */
+#logo-preview-container.has-logo {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Loading animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Feature card hover effect */
+.feature-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom QR Code templates styling */
+.template-item {
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+}
+
+.template-item:hover {
+    transform: scale(1.02);
+    border-color: #6366f1;
+}
+
+.template-item.selected {
+    border-color: #4f46e5;
+    border-width: 2px;
+    background-color: #f5f7ff;
+}
+
+/* FAQ accordion styling */
+.faq-button i {
+    transition: transform 0.2s ease;
+}
+
+.faq-button.active i {
+    transform: rotate(180deg);
+}
+
+/* Custom responsive styles */
+@media (max-width: 640px) {
+    #qr-code-container, #qr-preview-container {
+        min-height: 200px;
+    }
+    
+    .custom-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Gradient button styling */
+.gradient-btn {
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    transition: all 0.3s ease;
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(to right, #4338ca, #6d28d9);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Custom QR code frames */
+.qr-frame {
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.qr-frame.scan-me {
+    background-color: #f3f4f6;
+    border: 2px dashed #9ca3af;
+}
+
+.qr-frame.custom {
+    position: relative;
+}
+
+.qr-frame.custom::before {
+    content: attr(data-text);
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 0 10px;
+    font-weight: 600;
+    color: #4f46e5;
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Custom file input styling */
+.custom-file-input {
+    display: none;
+}
+
+.custom-file-label {
+    background-color: #f9fafb;
+    border: 2px dashed #d1d5db;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-file-label:hover {
+    border-color: #6366f1;
+    background-color: #f5f7ff;
+}
+
+/* Animation for generated QR Code */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.qr-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
