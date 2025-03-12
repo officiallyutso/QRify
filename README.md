@@ -52,7 +52,7 @@ QRify comes packed with a comprehensive set of features:
 
 ## Live Demo
 
-[View Live Demo](https://qrify.vercel.app) (Placeholder URL)
+[Live Demo](https://qrify-bay.vercel.app)
 
 ## Technology Stack
 
